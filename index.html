@@ -3,37 +3,18 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Adicionado para melhor compatibilidade -->
     <title>Sua Nova Coleção Chegou!</title>
     <style type="text/css">
         /* Reset de CSS para compatibilidade */
         body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
         table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
         img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
-        a { text-decoration: none; }
-        /* Fallback para GIFs não carregados */
-        .gif-fallback { display: none; }
-        @media screen and (-webkit-min-device-pixel-ratio:0) {
-            .gif-fallback { display: block; }
-            .gif-original { display: none; }
-        }
-        /* Estilos de Botão */
-        .cta-button {
-            background-color: #000000;
-            border: 1px solid #000000;
-            color: #ffffff;
-            padding: 10px 20px;
-            display: inline-block;
-            font-family: Arial, sans-serif;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .cta-button:hover {
-            background-color: #333333;
-            border-color: #333333;
-        }
+        /* Esconde o fallback inicialmente */
+        .gif-fallback { display: none; max-width: 100%; }
+        /* Mostra o fallback se o GIF não carregar */
+        .gif-container { position: relative; }
+        .broken-image .gif-fallback { display: block; }
+        .broken-image .gif-original { display: none; }
     </style>
 </head>
 <body style="margin: 0; padding: 0; background-color: #f7f7f7;">
@@ -44,15 +25,27 @@
                     <table border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
                         <tr>
                             <td style="padding: 0; font-size: 0; line-height: 0;">
-                                <a href="https://www.kimika.com.br" target="_blank" style="text-decoration: none;">
-                                    <!-- Versão original GIF -->
-                                    <img class="gif-original" src="https://i.imgur.com/fuvcmTN.gif" alt="Kimika: Nova Coleção de Moda Feminina" width="600" style="display: block; width: 100%; max-width: 600px;" />
-                                    <!-- Fallback estático (substitua pela URL de uma imagem estática) -->
-                                    <img class="gif-fallback" src="URL_DA_IMAGEM_ESTATICA_AQUI.jpg" alt="Kimika: Nova Coleção de Moda Feminina" width="600" style="display: block; width: 100%; max-width: 600px;" />
-                                </a>
+                                <div class="gif-container">
+                                    <a href="https://www.kimika.com.br" target="_blank" style="text-decoration: none;">
+                                        <!-- GIF original -->
+                                        <img class="gif-original" 
+                                             src="https://i.imgur.com/fuvcmTN.gif" 
+                                             alt="Kimika: Nova Coleção de Moda Feminina" 
+                                             width="600" 
+                                             style="display: block; width: 100%; max-width: 600px;"
+                                             onerror="this.parentNode.parentNode.classList.add('broken-image')">
+                                        
+                                        <!-- Fallback estático (substitua pela URL de uma imagem JPG/PNG) -->
+                                        <img class="gif-fallback" 
+                                             src="URL_DA_IMAGEM_ESTATICA_AQUI.jpg" 
+                                             alt="Kimika: Nova Coleção de Moda Feminina" 
+                                             width="600" 
+                                             style="display: block; width: 100%; max-width: 600px;">
+                                    </a>
+                                </div>
                             </td>
                         </tr>
-                        <tr>
+                        <!-- Restante do seu código permanece igual -->
                             <td style="padding: 0;">
                                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
@@ -102,6 +95,7 @@
     </center>
 </body>
 </html>
+
 
 
 
