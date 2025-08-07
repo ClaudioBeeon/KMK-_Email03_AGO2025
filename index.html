@@ -3,16 +3,21 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Adicionado para melhor compatibilidade -->
     <title>Sua Nova Coleção Chegou!</title>
     <style type="text/css">
         /* Reset de CSS para compatibilidade */
         body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
         table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
-        img { -ms-interpolation-mode: bicubic; }
-        /* Reset para clientes de e-mail */
-        img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; display: block; }
+        img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
         a { text-decoration: none; }
-        /* Estilos de Botão (exemplo) */
+        /* Fallback para GIFs não carregados */
+        .gif-fallback { display: none; }
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+            .gif-fallback { display: block; }
+            .gif-original { display: none; }
+        }
+        /* Estilos de Botão */
         .cta-button {
             background-color: #000000;
             border: 1px solid #000000;
@@ -40,7 +45,10 @@
                         <tr>
                             <td style="padding: 0; font-size: 0; line-height: 0;">
                                 <a href="https://www.kimika.com.br" target="_blank" style="text-decoration: none;">
-                                    <img src="https://i.imgur.com/fuvcmTN.gif" alt="Kimika: Nova Coleção de Moda Feminina" width="600" style="display: block; width: 100%; max-width: 600px;" />
+                                    <!-- Versão original GIF -->
+                                    <img class="gif-original" src="https://i.imgur.com/fuvcmTN.gif" alt="Kimika: Nova Coleção de Moda Feminina" width="600" style="display: block; width: 100%; max-width: 600px;" />
+                                    <!-- Fallback estático (substitua pela URL de uma imagem estática) -->
+                                    <img class="gif-fallback" src="URL_DA_IMAGEM_ESTATICA_AQUI.jpg" alt="Kimika: Nova Coleção de Moda Feminina" width="600" style="display: block; width: 100%; max-width: 600px;" />
                                 </a>
                             </td>
                         </tr>
@@ -94,6 +102,7 @@
     </center>
 </body>
 </html>
+
 
 
 
